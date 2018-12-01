@@ -1,0 +1,61 @@
+start up meta info
+
+mvn archetype:generate
+  -DgroupId=com.main.sarees
+  -DartifactId=VenkatagiriSarees
+  -Dname=VenkatagiriSarees
+  -Dpackage=pom
+  -DarchetypeGroupId=io.dropwizard.archetypes
+  -DarchetypeArtifactId=java-simple
+  -DinteractiveMode=false
+
+
+
+  mvn archetype:generate -DgroupId=com.main.sarees -DartifactId=Sarees -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
+
+
+  -DaopType=GUICE -Djava.awt.headless=true -Dfile.encoding=UTF-8 -Djava.net.preferIPv4Stack=true -XX:+UseG1GC -XX:+UnlockCommercialFeatures -XX:+FlightRecorder -XX:+HeapDumpOnOutOfMemoryError -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false  -XX:+PrintGCDateStamps -XX:+PrintGCTimeStamps -XX:+PrintGCDetails -Dcom.sun.management.jmxremote.port=25020 -Xloggc:/var/log/fk-abb-core/gc.2017-04-23.log -verbose:gc
+
+  server abb-core/config/local/core.yml
+
+
+
+  CREATE TABLE product_details (
+  reference_id bigint(20) NOT NULL AUTO_INCREMENT,
+  product_id varchar(255) NOT NULL,
+  available_qty int(11) NOT NULL,
+  blouse_available bit(1) NOT NULL,
+  category_type varchar(255) DEFAULT NULL,
+  colors varchar(255) NOT NULL,
+  created_at datetime DEFAULT NULL,
+  description varchar(2000) NOT NULL,
+  image_url1 varchar(1000) DEFAULT NULL,
+  image_url2 varchar(1000) DEFAULT NULL,
+  image_url3 varchar(1000) DEFAULT NULL,
+  image_url4 varchar(1000) DEFAULT NULL,
+  image_url5 varchar(1000) DEFAULT NULL,
+  is_active bit(1) NOT NULL,
+  materials varchar(500) NOT NULL,
+  original_price double NOT NULL,
+  owner varchar(255) NOT NULL,
+  promotional_percentage double DEFAULT NULL,
+  saree_type varchar(255) NOT NULL,
+  saved_amount double DEFAULT NULL,
+  selling_price double NOT NULL,
+  sub_owner varchar(255) DEFAULT NULL,
+  sub_title varchar(255) DEFAULT NULL,
+  title varchar(255) NOT NULL,
+  updated_at datetime DEFAULT NULL,
+  PRIMARY KEY (reference_id)
+) ENGINE=InnoDB AUTO_INCREMENT=2 CHARSET=utf8;
+
+
+INSERT INTO `product_details` (`product_id`, `available_qty`, `blouse_available`, `category_type`, `colors`, `created_at`, `description`, `image_url1`, `image_url2`, `image_url3`, `image_url4`, `image_url5`, `is_active`, `materials`, `original_price`, `owner`, `promotional_percentage`, `reference_id`, `saree_type`, `saved_amount`, `selling_price`, `sub_owner`, `sub_title`, `title`, `updated_at`)
+VALUES
+	('PROD01', 4, 0, 'Title', 'Blue', '2018-11-15 18:56:34', 'description', 'https://www.gstatic.com/webp/gallery/1.jpg', 'https://www.gstatic.com/webp/gallery/1.jpg', 'https://www.gstatic.com/webp/gallery/1.jpg', 'https://www.gstatic.com/webp/gallery/1.jpg', 'https://www.gstatic.com/webp/gallery/1.jpg', 1, 'Madda', 100, 'Maddagadu', 0, '123456', 'PURE_COTTON', 0, 2, NULL, NULL, 'Moddalo Product', '2018-11-15 18:56:34');
+
+
+	INSERT INTO `product_details` (`product_id`, `available_qty`, `blouse_available`, `category_type`, `colors`, `created_at`, `description`, `image_url1`, `image_url2`, `image_url3`, `image_url4`, `image_url5`, `is_active`, `materials`, `original_price`, `owner`, `promotional_percentage`, `reference_id`, `saree_type`, `saved_amount`, `selling_price`, `sub_owner`, `sub_title`, `title`, `updated_at`)
+VALUES
+	('PROD01', 4, 0, 'Title', 'Blue', '2018-11-15 18:56:34', 'description', 'https://www.gstatic.com/webp/gallery/1.jpg', 'https://www.gstatic.com/webp/gallery/1.jpg', 'https://www.gstatic.com/webp/gallery/1.jpg', 'https://www.gstatic.com/webp/gallery/1.jpg', 'https://www.gstatic.com/webp/gallery/1.jpg', 1, 'Madda', 100, 'Maddagadu', 0, '123456', 'PURE_COTTON', 0, 2, NULL, NULL, 'Moddalo Product', '2018-11-15 18:56:34');
+

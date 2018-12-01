@@ -1,0 +1,74 @@
+server:
+  maxThreads: 128
+  minThreads: 128
+  adminContextPath: /admin
+  applicationConnectors:
+  - type: http
+    port: 8080
+    acceptQueueSize: 1024
+    acceptorThreads: 4
+    selectorThreads: 8
+  adminConnectors:
+    - type: http
+      port: 8089
+      acceptorThreads: 1
+      selectorThreads: 2
+  requestLog:
+    appenders:
+    - type: file
+      currentLogFilename: /var/log/fk-abb-core/access.log
+      threshold: ALL
+      archive: true
+      archivedLogFilenamePattern: /var/log/fk-abb-core/access-%d{yyyy-MM-dd-HH}.log.gz
+      archivedFileCount: 24
+      timeZone: IST
+
+database:
+    # the name of the JDBC driver, mysql in our case
+    driverClass: com.mysql.jdbc.Driver
+    # the username
+    user: root
+    # the password
+    password:
+    # the JDBC URL; the database is called abb
+    url: jdbc:mysql://127.0.0.1:3306/sarees
+    initialSize : 16
+    minSize: 16
+    maxSize: 16
+    properties:
+      hibernate.dialect: org.hibernate.dialect.MySQLDialect
+      hibernate.hbm2ddl.auto: update
+      hibernate.show_sql: true
+
+homePageImgBanners:
+  imgUrl1: https://www.gstatic.com/webp/gallery/1.jpg
+  imgUrl2: https://www.gstatic.com/webp/gallery/1.jpg
+  imgUrl3: https://www.gstatic.com/webp/gallery/1.jpg
+  imgUrl4: https://www.gstatic.com/webp/gallery/1.jpg
+  imgUrl5: https://www.gstatic.com/webp/gallery/1.jpg
+
+
+logging:
+  loggers:
+    org.hibernate.engine.internal.StatisticalLoggingSessionEventListener: INFO
+  level: INFO
+  appenders:
+    - type: file
+      threshold: INFO
+      logFormat: "%-5level [%date] [%thread] [%X{X-Request-ID}] [%cyan(%logger{0})]: %message%n"
+      currentLogFilename: /var/log/fk-abb-core/info.log
+      archivedLogFilenamePattern: /var/log/fk-abb-core/info-%d{yyyy-MM-dd-HH}.log.gz
+      archivedFileCount: 10
+      timeZone: IST
+    - type: file
+      threshold: ERROR
+      logFormat: "%-5level [%date] [%thread] [%X{X-Request-ID}] [%cyan(%logger{0})]: %message%n"
+      currentLogFilename: /var/log/fk-abb-core/error.log
+      archivedLogFilenamePattern: /var/log/fk-abb-core/error-%d{yyyy-MM-dd-HH}.log.gz
+      archivedFileCount: 10
+      timeZone: IST
+    - type: console
+      threshold: ALL
+      logFormat: "%d{dd-MM-yyyy HH:mm:ss.SSS} [%X{X-Request-ID}] %-5level %logger{36} - %msg%n"
+      timeZone: IST
+      target: stdout
