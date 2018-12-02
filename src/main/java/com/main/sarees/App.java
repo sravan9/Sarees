@@ -4,7 +4,6 @@ package com.main.sarees;
 import com.google.inject.Singleton;
 import com.google.inject.Stage;
 import com.hubspot.dropwizard.guice.GuiceBundle;
-import com.models.db.Campaign;
 import com.models.db.ProductDetails;
 import io.dropwizard.Application;
 import io.dropwizard.db.PooledDataSourceFactory;
