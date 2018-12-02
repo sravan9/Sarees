@@ -1,5 +1,6 @@
 start up meta info
 
+
 mvn archetype:generate
   -DgroupId=com.main.sarees
   -DartifactId=VenkatagiriSarees
